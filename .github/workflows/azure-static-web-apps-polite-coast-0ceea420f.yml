@@ -80,19 +80,19 @@ jobs:
 
       - name: Build
 #         run: hugo --minify --source ./src --destination ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }} --config config.toml
-        run: hugo --minify --source . --destination ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }} --config config.toml
+        run: hugo --minify --source . --destination "/github/workspace/.output"--config config.toml
 
       - name: Publish website output
         uses: actions/upload-artifact@v1
         with:
           name: website
-          path: ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}
-
+          path: "/github/workspace/.output"
+          
 #       - name: Publish blog json
 #         uses: actions/upload-artifact@v1
 #         with:
 #           name: json
-#           path: ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}/index.json
+#           path: "/github/workspace/.output/index.json"
 
 
   build_and_deploy_job:
