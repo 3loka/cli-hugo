@@ -79,7 +79,8 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify --source ./src --destination ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }} --config config.toml
+#         run: hugo --minify --source ./src --destination ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }} --config config.toml
+        run: hugo --minify --source . --destination ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }} --config config.toml
 
       - name: Publish website output
         uses: actions/upload-artifact@v1
