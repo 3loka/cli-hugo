@@ -108,10 +108,9 @@ jobs:
           path: "/home/runner/work/cli-hugo/cli-hugo/.output" # ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}
       - name: 'Resolve Project Dependencies Using Pip'
         shell: bash
-        run: |
-          pushd 
+        run: | 
           ls "/home/runner/work/cli-hugo/cli-hugo/.output"
-          popd
+          ls ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v0.0.1-preview
