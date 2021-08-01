@@ -88,11 +88,11 @@ jobs:
           name: website
           path: ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}
 
-      - name: Publish blog json
-        uses: actions/upload-artifact@v1
-        with:
-          name: json
-          path: ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}/index.json
+#       - name: Publish blog json
+#         uses: actions/upload-artifact@v1
+#         with:
+#           name: json
+#           path: ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}/index.json
 
 
   build_and_deploy_job:
