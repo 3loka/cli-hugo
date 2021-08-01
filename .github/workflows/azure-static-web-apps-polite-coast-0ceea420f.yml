@@ -80,19 +80,19 @@ jobs:
 
       - name: Build
 #         run: hugo --minify --source ./src --destination ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }} --config config.toml
-        run: hugo --minify --source . --destination "/github/workspace/.output" --config config.toml
+        run: hugo --minify --source . --destination ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }} --config config.toml
 
       - name: Publish website output
         uses: actions/upload-artifact@v1
         with:
           name: website
-          path: "/github/workspace/.output"
+          path: ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}
           
 #       - name: Publish blog json
 #         uses: actions/upload-artifact@v1
 #         with:
 #           name: json
-#           path: "/github/workspace/.output/index.json"
+#           path: ${{ github.workspace }}/${{ env.OUTPUT_FOLDER }}
 
 
   build_and_deploy_job:
@@ -116,7 +116,7 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location:  "/home/runner/work/cli-hugo/cli-hugo/.output" 
-          api_location: "api" # Api source code path - optional
+          api_location: "." # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
